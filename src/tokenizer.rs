@@ -1,4 +1,3 @@
-use std::vec::Vec;
 use std::collections::{HashMap, BTreeSet};
 
 pub struct Tokenizer {
@@ -15,7 +14,7 @@ impl Tokenizer {
 
         // Get set of chars in corpus
         let unique_chars: BTreeSet<char> = corpus.chars().collect();
-        println!("unique chars: {unique_chars:?}");
+        // println!("unique chars: {unique_chars:?}");
 
         let vocab_size = unique_chars.len();
 
@@ -26,25 +25,21 @@ impl Tokenizer {
         }
 
         // Debugging
-        for (key, value) in &id_to_char {
-            println!("{key}: {value}");
-        }
+        // for (key, value) in &id_to_char {
+        //     println!("{key}: {value}");
+        // }
 
         Tokenizer { char_to_id, id_to_char, vocab_size }
     }
 
     /// Using the encoding mapping generated when the `new` fn was called,
     /// encode the given text slice and return it's encoded as u32's
-    pub fn encode(&self, text: &str) -> Vec<u32> {
-        // for (key, value) in &tokenizer {
-        //     println!("{key}: {value}");
-        // }
-    
-        // Now actually encode the text
+    pub fn encode(&self, text: &str) -> Vec<u32> {    
+        // Encode the text
         let encoded_text: Vec<u32> = text.chars().map(|letter| {
             self.char_to_id.get(&letter).unwrap().clone()
         }).collect();
-        
+
         encoded_text
     }
     
