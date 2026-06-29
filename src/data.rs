@@ -10,6 +10,8 @@ pub struct Dataset {
 }
 
 impl Dataset {
+    /// Reads the corpus of data at the file `path`, then creates the tokenizer from it, encodes it, and 
+    /// splits the data 90% / 10% for training and test sets.
     pub fn load(path: &str) -> Result<Self> {
         let corpus = fs::read_to_string(path).context("Failed to load corpus data")?;
 
