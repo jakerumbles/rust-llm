@@ -3,7 +3,7 @@ use std::collections::{HashMap, BTreeSet};
 pub struct Tokenizer {
     char_to_id: HashMap<char, u32>,
     id_to_char: HashMap<u32, char>,
-    vocab_size: usize,
+    pub vocab_size: usize,
 }
 
 impl Tokenizer {

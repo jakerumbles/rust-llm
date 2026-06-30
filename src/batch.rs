@@ -2,7 +2,7 @@ use candle_core::{Device, Tensor};
 use anyhow::Context;
 
 /// Create our batch tensors given `data` which is a reference to the entire training data vec
-pub fn get_batch(data: &[u32], batch_size: usize, block_size: usize, device: &Device) -> anyhow::Result<(Tensor, Tensor)> {
+pub fn get_batches(data: &[u32], batch_size: usize, block_size: usize, device: &Device) -> anyhow::Result<(Tensor, Tensor)> {
     // Batch Sampling
     let train_length = data.len() - block_size - 1;
 
